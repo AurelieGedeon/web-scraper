@@ -7,8 +7,5 @@ soup = BeautifulSoup(page_to_scrape.text, 'html.parser')
 titles = soup.findAll('h3')
 prices = soup.findAll('p', attrs={'class': 'price_color'})
 
-for title in titles:
-    print(title.text)
-
-for price in prices:
-    print(price.text)
+for title, price in zip(titles, prices):
+    print(title.text + ' - ' + price.text)
